@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BATriangleCoords } from "../App.vue";
+import type { BATriangleCoords } from "./BaTriFx.vue";
 
 const props = defineProps<BATriangleCoords>();
 </script>
@@ -18,15 +18,17 @@ const props = defineProps<BATriangleCoords>();
 
 <style scoped lang="postcss">
 .triangle-anim {
-	animation: triangle 1s ease-out infinite;
+	animation: triangle 1s ease-out forwards;
 }
 
 @keyframes triangle {
 	from {
+		opacity: 1;
 		transform: translate(v-bind(x.from + "px"), v-bind(y.from + "px"));
 	}
 
 	to {
+		opacity: 0;
 		transform: translate(v-bind(x.to + "px"), v-bind(y.to + "px"));
 	}
 }
